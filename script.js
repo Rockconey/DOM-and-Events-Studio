@@ -12,6 +12,9 @@ let rocketHeight = null;
 
 window.addEventListener("load", function () {
     let goRocket = document.getElementById("rocket");
+    goRocket.style.position = "absolute";
+    goRocket.style.left = "0px";
+    goRocket.style.bottom = "0px";
     let rocketHeight = document.getElementById("spaceShuttleHeight");
     button = document.getElementById("takeoff");
     landingbutton = document.getElementById("landing");
@@ -21,9 +24,7 @@ window.addEventListener("load", function () {
     pushUp = document.getElementById("pushUp");
     loDown = document.getElementById("loDown");
     
-    goRocket.style.position = "absolute";
-    goRocket.style.left = "0px";
-    goRocket.style.bottom = "0px";
+    
     
     
     
@@ -76,20 +77,23 @@ window.addEventListener("load", function () {
     
     pullLeft.addEventListener("click", function(event) {
 
-        goRocket.style.left = "-10px";
+        movement = parseInt(goRocket.style.left) - 10 + 'px';
+        goRocket.style.left = movement;
         
     })
 
     
     pushRight.addEventListener("click", function(event) {
 
-        goRocket.style.left = "10px";
+        movement = parseInt(goRocket.style.left) + 10 + "px";
+        goRocket.style.left = movement;
     })
 
     
     pushUp.addEventListener("click", function(event) {
 
-        goRocket.style.bottom = "10px";
+        movement = parseInt(goRocket.style.bottom) + 10 + "px";
+        goRocket.style.bottom = movement;
 
         rocketHeight.innerHTML = parseInt(rocketHeight.innerHTML) + 10000;
     })
@@ -97,7 +101,8 @@ window.addEventListener("load", function () {
     
     loDown.addEventListener("click", function(event) {
 
-        goRocket.style.bottom = "-10px";
+        movement = goRocket.style.bottom - 10 + "px";
+        goRocket.style.bottom = movement;
 
         rocketHeight.innerHTML = parseInt(rocketHeight.innerHTML) - 10000;
         
